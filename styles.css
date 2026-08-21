@@ -1,0 +1,186 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * SANNcia Holiday design system.
+ * Brand palette: deep royal navy + golden yellow, white and light tints only.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-navy-soft: var(--navy-soft);
+  --color-gold: var(--gold);
+  --color-gold-deep: var(--gold-deep);
+  --color-gold-soft: var(--gold-soft);
+  --color-sand: var(--sand);
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.25rem;
+
+  --navy: oklch(0.32 0.098 262);
+  --navy-deep: oklch(0.22 0.076 263);
+  --navy-soft: oklch(0.955 0.014 255);
+  --gold: oklch(0.79 0.148 78);
+  --gold-deep: oklch(0.68 0.145 63);
+  --gold-soft: oklch(0.973 0.028 88);
+  --sand: oklch(0.985 0.008 90);
+
+  --background: oklch(1 0 0);
+  --foreground: var(--navy-deep);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--navy-deep);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--navy-deep);
+  --primary: var(--navy);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: var(--navy-soft);
+  --secondary-foreground: var(--navy);
+  --muted: var(--navy-soft);
+  --muted-foreground: oklch(0.52 0.033 262);
+  --accent: var(--gold);
+  --accent-foreground: var(--navy-deep);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.905 0.014 255);
+  --input: oklch(0.905 0.014 255);
+  --ring: var(--gold);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+}
+
+@utility eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+
+@utility rule-gold {
+  &::before {
+    content: "";
+    display: block;
+    width: 2.5rem;
+    height: 2px;
+    background: var(--gold);
+    margin-bottom: 1.25rem;
+  }
+}
+
+/* Scroll reveal */
+@utility reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 900ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+@utility is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Periodic "jump" for the floating WhatsApp button */
+@keyframes wa-jump {
+  0%,
+  55%,
+  100% {
+    transform: translateY(0);
+  }
+  65% {
+    transform: translateY(-13px);
+  }
+  75% {
+    transform: translateY(0);
+  }
+  83% {
+    transform: translateY(-6px);
+  }
+  91% {
+    transform: translateY(0);
+  }
+}
+
+@utility animate-wa-jump {
+  animation: wa-jump 2.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .animate-wa-jump {
+    animation: none;
+  }
+}
