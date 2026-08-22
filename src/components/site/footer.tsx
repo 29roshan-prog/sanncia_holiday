@@ -1,6 +1,7 @@
 import { Facebook, Instagram, MapPin, Youtube } from "lucide-react";
 import { Reveal } from "./reveal";
 import {
+  Logo,
   whatsappHref,
   WhatsAppIcon,
   WHATSAPP_DISPLAY,
@@ -18,12 +19,9 @@ export function SiteFooter() {
       <div className="mx-auto max-w-[1400px] px-5 py-24 sm:px-8">
         <div className="grid gap-14 lg:grid-cols-[1.1fr_1fr_1fr]">
           <Reveal>
-            <span className="block text-[1.9rem] leading-none font-extrabold tracking-[0.02em] text-white">
-              SANN<span className="text-gold">cia</span>
-            </span>
-            <span className="mt-2 block text-[0.72rem] font-bold tracking-[0.5em] text-gold uppercase">
-              Holiday
-            </span>
+            <div className="inline-flex items-center bg-white px-5 py-3.5">
+              <Logo className="h-12" />
+            </div>
             <p className="mt-7 max-w-sm text-[0.95rem] leading-relaxed text-white/65">
               A travel and tour partner that designs and manages the complete travel experience —
               domestic and international — from the first idea to the journey home.
