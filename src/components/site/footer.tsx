@@ -18,11 +18,11 @@ export function SiteFooter() {
       <div className="mx-auto max-w-[1400px] px-5 py-24 sm:px-8">
         <div className="grid gap-14 lg:grid-cols-[1.1fr_1fr_1fr]">
           <Reveal>
-            <span className="text-[1.15rem] font-extrabold tracking-[-0.02em] text-white">
+            <span className="block text-[1.9rem] leading-none font-extrabold tracking-[0.02em] text-white">
               SANN<span className="text-gold">cia</span>
-              <span className="ml-2 text-[0.6rem] font-semibold tracking-[0.34em] text-white/70 uppercase align-middle">
-                Holiday
-              </span>
+            </span>
+            <span className="mt-2 block text-[0.72rem] font-bold tracking-[0.5em] text-gold uppercase">
+              Holiday
             </span>
             <p className="mt-7 max-w-sm text-[0.95rem] leading-relaxed text-white/65">
               A travel and tour partner that designs and manages the complete travel experience —

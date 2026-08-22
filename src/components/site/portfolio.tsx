@@ -9,6 +9,7 @@ import dubai from "@/assets/dest-dubai.webp";
 import ladakh from "@/assets/dest-ladakh.webp";
 import cruise from "@/assets/dest-cruise.webp";
 import jaipur from "@/assets/dest-jaipur.webp";
+import holyland from "@/assets/gal-holyland-2019.webp";
 import { Reveal } from "./reveal";
 
 type Shot = { img: string; alt: string; category: string; span: string };
@@ -23,6 +24,12 @@ const SHOTS: Shot[] = [
     alt: "Group of travellers at a mountain viewpoint on a Sanncia Holiday trip",
     category: "Customer Group Trips",
     span: "md:col-span-2 md:row-span-2",
+  },
+  {
+    img: holyland,
+    alt: "Sanncia Holiday group on the Holy Land trip, 2019",
+    category: "Customer Group Trips",
+    span: "",
   },
   {
     img: honeymoon,
@@ -173,7 +180,7 @@ export function Portfolio() {
 }
 
 export function Gallery() {
-  const strip = [group, resort, dubai, kerala, cruise, ladakh, honeymoon, jaipur];
+  const strip = [group, holyland, resort, dubai, kerala, cruise, ladakh, honeymoon, jaipur];
   return (
     <section aria-label="Travel gallery" className="bg-sand py-24 sm:py-28">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
