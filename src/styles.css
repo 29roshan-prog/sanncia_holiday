@@ -146,6 +146,31 @@
   }
 }
 
+/* Periodic "jump" for the floating WhatsApp button */
+@keyframes wa-jump {
+  0%,
+  55%,
+  100% {
+    transform: translateY(0);
+  }
+  65% {
+    transform: translateY(-13px);
+  }
+  75% {
+    transform: translateY(0);
+  }
+  83% {
+    transform: translateY(-6px);
+  }
+  91% {
+    transform: translateY(0);
+  }
+}
+
+@utility animate-wa-jump {
+  animation: wa-jump 2.6s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -154,5 +179,8 @@
     opacity: 1;
     transform: none;
     transition: none;
+  }
+  .animate-wa-jump {
+    animation: none;
   }
 }

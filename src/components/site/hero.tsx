@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { ArrowDown, MessageCircle } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import heroImg from "@/assets/hero.webp";
-import { whatsappHref, WHATSAPP_DISPLAY } from "./brand";
+import { whatsappHref, WhatsAppIcon, WHATSAPP_DISPLAY } from "./brand";
 
 export function Hero() {
   const [offset, setOffset] = useState(0);
@@ -75,9 +75,9 @@ export function Hero() {
             href={whatsappHref()}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-2 py-4 text-[0.82rem] font-semibold text-white/85 transition-colors hover:text-gold"
+            className="inline-flex items-center justify-center gap-2.5 rounded-full bg-[#25D366] px-6 py-4 text-[0.82rem] font-bold tracking-[0.03em] text-white shadow-lg shadow-black/20 transition-colors hover:bg-[#1ebe5b]"
           >
-            <MessageCircle className="h-4 w-4" aria-hidden="true" />
+            <WhatsAppIcon className="h-5 w-5" />
             WhatsApp {WHATSAPP_DISPLAY}
           </a>
         </div>

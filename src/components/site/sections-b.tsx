@@ -1,8 +1,16 @@
-import { MessageCircle, Quote, Star, Target, Compass, Gem } from "lucide-react";
+import { Quote, Star, Target, Compass, Gem } from "lucide-react";
 import miceImg from "@/assets/mice.webp";
 import ctaImg from "@/assets/cta.webp";
 import { Reveal } from "./reveal";
-import { whatsappHref, WHATSAPP_DISPLAY, PHONE_DISPLAY, PHONE_TEL, EMAIL } from "./brand";
+import {
+  whatsappHref,
+  WhatsAppIcon,
+  WHATSAPP_DISPLAY,
+  PHONE_DISPLAY,
+  PHONE_TEL,
+  EMAIL,
+  GOOGLE_REVIEWS_URL,
+} from "./brand";
 
 /** Package content has not been supplied yet — placeholders only, no invented data. */
 const PACKAGES = ["Bali", "Vietnam", "Japan", "MSC Cruise", "Kerala", "Leh–Ladakh"];
@@ -50,7 +58,7 @@ export function Packages() {
                 rel="noopener noreferrer"
                 className="mt-6 inline-flex items-center justify-center gap-2 border border-navy px-6 py-3.5 text-[0.74rem] font-bold tracking-[0.14em] text-navy uppercase transition-colors hover:bg-navy hover:text-white"
               >
-                <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                <WhatsAppIcon className="h-4 w-4" />
                 Enquire on WhatsApp
               </a>
             </Reveal>
@@ -166,52 +174,177 @@ export function Mice() {
   );
 }
 
+/**
+ * Real Google reviews for Sanncia Holiday, transcribed from the business's
+ * Google Business Profile (5.0★ from 19 reviews). Only reviews that include
+ * written feedback are shown here. See every review via GOOGLE_REVIEWS_URL.
+ */
+const REVIEWS = [
+  {
+    name: "ajay kumar",
+    meta: "Local Guide · 13 reviews",
+    when: "7 years ago",
+    text: "Thank you Sanncia Holidays for making our trip a most memorable one for life. I recently went to Bali through Sanncia and it was such an amazing experience — their hospitality and empathy for customers is simply marvellous.",
+  },
+  {
+    name: "Jaya Vignesh",
+    meta: "4 reviews",
+    when: "7 years ago",
+    text: "Had the most remarkable tour with Sanncia Holidays. I was extremely satisfied — they were very courteous and helpful from the very beginning, organising our trip to Italy in the best possible way.",
+  },
+  {
+    name: "kanthakumar D",
+    meta: "8 reviews · 1 photo",
+    when: "7 years ago",
+    text: "We thank Sanncia Holiday for making our 5-day tour of the Golden Triangle so special. Everyone was friendly, professional, kind and courteous, showing such pride in wanting to please us!",
+  },
+  {
+    name: "P K",
+    meta: "7 reviews",
+    when: "7 years ago",
+    text: "We booked through Sanncia Holiday for our trip to Amsterdam and the experience was amazing. They provide the best prices on hotels and flights, and guided us on where and how to explore Amsterdam to make our trip more memorable.",
+  },
+  {
+    name: "bharathi dasan",
+    meta: "4 reviews",
+    when: "6 years ago",
+    text: "We want to thank Sanncia Holiday for our Holy Land trip to Jerusalem and other countries. The tour was conducted very meticulously and all our facilities were taken care of.",
+  },
+  {
+    name: "Arvind Narendran",
+    meta: "Local Guide · 13 reviews",
+    when: "7 years ago",
+    text: "The staff is very friendly. I booked a 5-day trip to Malaysia and was provided with the best hotel and travel guide for sightseeing. I'd recommend anyone looking for a genuine travel experience at a reasonable price to destinations worldwide.",
+  },
+  {
+    name: "Sandhya H.",
+    meta: "2 reviews",
+    when: "3 years ago",
+    text: "Thank you Sanncia Holiday for making my Dubai trip so hassle-free. It was also cheaper compared to a self-organised trip. Looking forward to my future trips organised by you.",
+  },
+  {
+    name: "manohar more",
+    meta: "2 reviews",
+    when: "3 years ago",
+    text: "Thank you Sanncia Holiday for a wonderful trip — it was well organised. I recently went to Thailand and would definitely recommend them to everyone.",
+  },
+  {
+    name: "MOHAMMED ARSHAN",
+    meta: "Local Guide · 27 reviews",
+    when: "7 years ago",
+    text: "100% satisfied. Thanks Sanncia Holidays — next tour, Dubai!",
+  },
+  {
+    name: "Srinivas.S AICC",
+    meta: "3 reviews",
+    when: "4 years ago",
+    text: "I frequently fly through Sanncia. Noble M.D — very fantastic service. Wishing them the very best ahead.",
+  },
+  {
+    name: "Amit Kumar Joshi",
+    meta: "Local Guide · 22 reviews",
+    when: "7 years ago",
+    text: "A good experience with them and a wonderful staff. Hospitality was beyond expectations.",
+  },
+  {
+    name: "suchanth prasanth",
+    meta: "Local Guide · 6 reviews",
+    when: "6 years ago",
+    text: "Best holiday consultant for customised tours!",
+  },
+];
+
+function initialOf(name: string) {
+  const first = name.trim().charAt(0);
+  return first ? first.toUpperCase() : "★";
+}
+
 export function Testimonials() {
   return (
     <section id="reviews" className="bg-sand py-24 sm:py-32">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
-        <Reveal className="max-w-2xl">
+        <Reveal className="max-w-3xl">
           <p className="eyebrow">Customer Stories</p>
           <h2 className="mt-5 text-[clamp(2rem,4.4vw,3.4rem)] leading-[1.03] font-extrabold text-navy-deep">
             Real Journeys. Real Experiences.
           </h2>
-          <p className="mt-5 text-[1.02rem] leading-relaxed text-muted-foreground">
-            <span className="font-semibold text-navy">Google Reviews Integration</span> — this
-            carousel is ready for live Google reviews. Cards below are empty placeholders, no
-            testimonials have been invented.
-          </p>
+
+          <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-4">
+            <div className="flex items-center gap-3">
+              <span className="text-[2.4rem] leading-none font-extrabold text-navy-deep">5.0</span>
+              <span>
+                <span className="flex gap-0.5" aria-hidden="true">
+                  {[0, 1, 2, 3, 4].map((s) => (
+                    <Star key={s} className="h-4 w-4 fill-gold text-gold" />
+                  ))}
+                </span>
+                <span className="mt-1 block text-[0.8rem] text-muted-foreground">
+                  Rated 5.0 from 19 Google reviews
+                </span>
+              </span>
+            </div>
+
+            <a
+              href={GOOGLE_REVIEWS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border border-navy/20 px-5 py-3 text-[0.78rem] font-bold tracking-[0.06em] text-navy uppercase transition-colors hover:border-gold hover:text-gold-deep"
+            >
+              Read all reviews on Google
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
         </Reveal>
       </div>
 
       <div className="no-scrollbar mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-2 sm:px-8">
-        {[0, 1, 2, 3].map((i) => (
+        {REVIEWS.map((r) => (
           <article
-            key={i}
-            className="w-[82vw] shrink-0 snap-start border border-border bg-white p-8 sm:w-[420px]"
+            key={r.name + r.when}
+            className="flex w-[82vw] shrink-0 snap-start flex-col border border-border bg-white p-8 sm:w-[420px]"
           >
-            <Quote className="h-6 w-6 text-gold" aria-hidden="true" />
-            <div className="mt-5 flex gap-1" aria-label="Rating placeholder">
-              {[0, 1, 2, 3, 4].map((s) => (
-                <Star key={s} className="h-4 w-4 text-border" aria-hidden="true" />
-              ))}
+            <div className="flex items-center justify-between">
+              <div className="flex gap-1" aria-label="Rated 5 out of 5">
+                {[0, 1, 2, 3, 4].map((s) => (
+                  <Star key={s} className="h-4 w-4 fill-gold text-gold" aria-hidden="true" />
+                ))}
+              </div>
+              <Quote className="h-6 w-6 text-gold/40" aria-hidden="true" />
             </div>
-            <p className="mt-5 text-[0.95rem] leading-relaxed text-muted-foreground">
-              Review text will appear here once Google Reviews are connected.
-            </p>
+
+            <p className="mt-5 grow text-[0.98rem] leading-relaxed text-navy/80">“{r.text}”</p>
+
             <div className="mt-8 flex items-center gap-3">
               <span
                 aria-hidden="true"
-                className="grid h-10 w-10 place-items-center rounded-full bg-navy-soft text-[0.7rem] font-bold text-navy/50"
+                className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-navy text-[0.85rem] font-bold text-gold"
               >
-                —
+                {initialOf(r.name)}
               </span>
               <div>
-                <p className="text-[0.85rem] font-bold text-navy">Customer name</p>
-                <p className="text-[0.75rem] text-muted-foreground">Google review</p>
+                <p className="text-[0.9rem] font-bold text-navy">{r.name}</p>
+                <p className="text-[0.75rem] text-muted-foreground">
+                  {r.meta} · {r.when}
+                </p>
               </div>
             </div>
           </article>
         ))}
+      </div>
+
+      <div className="mx-auto mt-8 max-w-[1400px] px-5 sm:px-8">
+        <p className="text-[0.8rem] text-muted-foreground">
+          Reviews sourced from our{" "}
+          <a
+            href={GOOGLE_REVIEWS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-navy underline-offset-2 hover:text-gold-deep hover:underline"
+          >
+            Google Business Profile
+          </a>
+          .
+        </p>
       </div>
     </section>
   );
@@ -298,7 +431,7 @@ export function FinalCta() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 border border-white/45 px-8 py-4 text-[0.78rem] font-bold tracking-[0.14em] text-white uppercase transition-colors hover:border-white hover:bg-white/10"
             >
-              <MessageCircle className="h-4 w-4" aria-hidden="true" />
+              <WhatsAppIcon className="h-4 w-4" />
               WhatsApp Us
             </a>
           </div>

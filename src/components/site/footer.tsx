@@ -1,6 +1,13 @@
-import { Facebook, Instagram, MapPin, MessageCircle, Youtube } from "lucide-react";
+import { Facebook, Instagram, MapPin, Youtube } from "lucide-react";
 import { Reveal } from "./reveal";
-import { whatsappHref, WHATSAPP_DISPLAY, PHONE_DISPLAY, PHONE_TEL, EMAIL } from "./brand";
+import {
+  whatsappHref,
+  WhatsAppIcon,
+  WHATSAPP_DISPLAY,
+  PHONE_DISPLAY,
+  PHONE_TEL,
+  EMAIL,
+} from "./brand";
 
 const ADDRESS =
   "SAI SADAN, 66-A, 7th Main Road, Mahadeshwara Nagar, BTM 2nd Stage, Bengaluru, Karnataka 560076";
@@ -65,7 +72,7 @@ export function SiteFooter() {
               rel="noopener noreferrer"
               className="mt-6 inline-flex items-center gap-2 bg-gold px-7 py-4 text-[0.78rem] font-bold tracking-[0.14em] text-navy-deep uppercase transition-colors hover:bg-white"
             >
-              <MessageCircle className="h-4 w-4" aria-hidden="true" />
+              <WhatsAppIcon className="h-4 w-4" />
               WhatsApp Us
             </a>
             <p className="mt-4 text-[0.82rem] text-white/50">
@@ -109,10 +116,10 @@ export function WhatsAppFab() {
       href={whatsappHref()}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Enquire on WhatsApp"
-      className="fixed right-5 bottom-5 z-[60] inline-flex items-center gap-2 rounded-full bg-navy px-5 py-4 text-[0.75rem] font-bold tracking-[0.12em] text-white uppercase shadow-lg transition-colors hover:bg-gold hover:text-navy-deep"
+      aria-label="Chat with us on WhatsApp"
+      className="animate-wa-jump fixed right-5 bottom-5 z-[60] inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-4 text-[0.75rem] font-bold tracking-[0.12em] text-white uppercase shadow-lg shadow-black/25 transition-colors hover:bg-[#1ebe5b]"
     >
-      <MessageCircle className="h-5 w-5" aria-hidden="true" />
+      <WhatsAppIcon className="h-6 w-6" />
       <span className="hidden sm:inline">WhatsApp</span>
     </a>
   );
