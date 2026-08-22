@@ -83,7 +83,7 @@ const FEATURED = [
 ];
 
 const MORE_DOMESTIC = ["Agra", "Goa", "Delhi", "Varanasi", "Manali–Shimla", "Rishikesh", "Amritsar"];
-const MORE_INTERNATIONAL = ["London", "Rome", "Tokyo", "New York", "Bangkok", "Crete", "Istanbul"];
+const MORE_INTERNATIONAL = ["London", "Rome", "Tokyo", "New York", "Bangkok", "Greece", "Istanbul"];
 
 export function Destinations() {
   const scroller = useRef<HTMLDivElement | null>(null);
