@@ -42,14 +42,11 @@ export function Packages() {
                   (label) => (
                     <div key={label} className="flex items-baseline justify-between gap-4 border-b border-border pb-2">
                       <dt className="font-semibold text-navy">{label}</dt>
-                      <dd className="text-muted-foreground">Coming soon</dd>
+                      <dd className="text-muted-foreground">—</dd>
                     </div>
                   ),
                 )}
               </dl>
-              <p className="mt-6 text-[0.8rem] font-semibold tracking-[0.1em] text-muted-foreground uppercase">
-                Package details coming soon
-              </p>
               <a
                 href={whatsappHref(
                   `Hi Sanncia Holiday, I would like package details for ${name}. Please help me with the details.`,
