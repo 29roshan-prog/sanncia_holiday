@@ -1,0 +1,7 @@
+[build]
+  command = "npm run build"
+  publish = "dist/client"
+
+# The SSR handler is emitted by @netlify/vite-plugin-tanstack-start to
+# .netlify/v1/functions/server.mjs and is auto-detected by Netlify.
+# Do not set a [functions] directory here — it would override that.
